@@ -10,7 +10,7 @@ contract Contract {
 
   enum Status {
     Created,
-    Sale,
+    ToSale,
     Approved,
     Closed
   }
@@ -95,7 +95,7 @@ contract Contract {
   function sellProduct(
     uint product_id
   ) public checkStatusProduct(product_id, Status.Created) {
-    products[product_id].status = Status.Sale;
+    products[product_id].status = Status.ToSale;
   }
 
   function withdrawFee() public onlyOwner {
